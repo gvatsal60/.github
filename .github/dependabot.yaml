@@ -12,7 +12,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # Bun
   - package-ecosystem: "bun"
     directory: "/"
@@ -20,7 +19,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # Ruby (Bundler)
   - package-ecosystem: "bundler"
     directory: "/"
@@ -28,7 +26,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # Rust (Cargo)
   - package-ecosystem: "cargo"
     directory: "/"
@@ -36,7 +33,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # PHP (Composer)
   - package-ecosystem: "composer"
     directory: "/"
@@ -44,7 +40,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # Python (Conda)
   - package-ecosystem: "conda"
     directory: "/"
@@ -52,7 +47,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # Deno
   - package-ecosystem: "deno"
     directory: "/"
@@ -60,7 +54,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # Devcontainers
   - package-ecosystem: "devcontainers"
     directory: "/"
@@ -68,7 +61,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # Docker containers
   - package-ecosystem: "docker"
     directory: "/"
@@ -76,7 +68,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # Docker-Compose containers
   - package-ecosystem: "docker-compose"
     directory: "/"
@@ -84,7 +75,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # .NET-SDK
   - package-ecosystem: "dotnet-sdk"
     directory: "/"
@@ -92,7 +82,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # Elm
   - package-ecosystem: "elm"
     directory: "/"
@@ -100,7 +89,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # GitHub Actions
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -108,7 +96,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # Git Submodule
   - package-ecosystem: "gitsubmodule"
     directory: "/"
@@ -116,7 +103,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # Go modules
   - package-ecosystem: "gomod"
     directory: "/"
@@ -124,7 +110,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # Java / Kotlin (Gradle)
   - package-ecosystem: "gradle"
     directory: "/"
@@ -132,7 +117,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # Helm
   - package-ecosystem: "helm"
     directory: "/"
@@ -140,7 +124,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # Julia
   - package-ecosystem: "julia"
     directory: "/"
@@ -148,7 +131,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # Java (Maven)
   - package-ecosystem: "maven"
     directory: "/"
@@ -156,7 +138,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # Mix
   - package-ecosystem: "mix"
     directory: "/"
@@ -164,7 +145,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # Nix
   - package-ecosystem: "nix"
     directory: "/"
@@ -172,7 +152,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # Node.js (npm, yarn, pnpm)
   - package-ecosystem: "npm"
     directory: "/"
@@ -180,7 +159,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # .NET (NuGet)
   - package-ecosystem: "nuget"
     directory: "/"
@@ -188,7 +166,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # OpenTofu
   - package-ecosystem: "opentofu"
     directory: "/"
@@ -196,7 +173,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # Python (pip, Pipenv, Poetry)
   - package-ecosystem: "pip"
     directory: "/"
@@ -204,7 +180,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # Pre-commit
   - package-ecosystem: "pre-commit"
     directory: "/"
@@ -212,7 +187,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # Dart / Flutter (Pub)
   - package-ecosystem: "pub"
     directory: "/"
@@ -220,7 +194,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # Rust Toolchain
   - package-ecosystem: "rust-toolchain"
     directory: "/"
@@ -228,7 +201,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # Swift (SwiftPM)
   - package-ecosystem: "swift"
     directory: "/"
@@ -236,7 +208,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # Terraform
   - package-ecosystem: "terraform"
     directory: "/"
@@ -244,7 +215,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # UV
   - package-ecosystem: "uv"
     directory: "/"
@@ -252,7 +222,6 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "09:00"
-
   # VC-PKG
   - package-ecosystem: "vcpkg"
     directory: "/"
