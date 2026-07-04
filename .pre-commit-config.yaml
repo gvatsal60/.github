@@ -111,7 +111,7 @@ repos:
       - id: codespell
   # Checkmake for linting Makefiles
   - repo: https://github.com/mrtazz/checkmake
-    rev: "v0.3.0"
+    rev: "v0.3.2"
     hooks:
       - id: checkmake
   # SQLFluff for linting and fixing SQL files
@@ -144,7 +144,7 @@ repos:
         entry: cmd --githook pre-commit
   # Markdownlint for linting Markdown files
   - repo: https://github.com/DavidAnson/markdownlint-cli2
-    rev: v0.22.1
+    rev: v0.23.0
     hooks:
       - id: markdownlint-cli2
         args: [--fix]
