@@ -1,50 +1,38 @@
-# 🚀 Project Template
+# Personal GitHub Defaults
 
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://img.shields.io/github/license/gvatsal60/project-template)
-[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/gvatsal60/project-template/master.svg)](https://results.pre-commit.ci/latest/github/gvatsal60/project-template/HEAD)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/7ae60c7a6c824bfea751067f08618c0d)](https://app.codacy.com/gh/gvatsal60/project-template/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
-[![CodeFactor](https://www.codefactor.io/repository/github/gvatsal60/project-template/badge)](https://www.codefactor.io/repository/github/gvatsal60/project-template)
-![GitHub pull-requests](https://img.shields.io/github/issues-pr/gvatsal60/project-template)
-![GitHub Issues](https://img.shields.io/github/issues/gvatsal60/project-template)
-![GitHub forks](https://img.shields.io/github/forks/gvatsal60/project-template)
-![GitHub stars](https://img.shields.io/github/stars/gvatsal60/project-template)
+This repository is a central configuration hub for my personal GitHub account.
+It is meant to provide a consistent baseline for new repositories without forcing
+every repo to carry the same boilerplate.
 
-Welcome to the `Project Template` repository! This serves as your starting point for new projects,
-packed with the essential tools to ensure smooth development, code quality, and consistent documentation.
-Inside, you'll find:
+## What This Repo Standardizes
 
-1. 📄 README.md
-2. 📝 LICENSE
-3. 🚫 .gitignore
-4. 🧑‍🤝‍🧑 CODE_OF_CONDUCT.md
-5. ✍️ CONTRIBUTING.md
-6. 💰 FUNDING.yml
-7. 📜 CHANGELOG.md
+- Shared community files such as [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md), [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and [CHANGELOG.md](CHANGELOG.md)
+- Default issue templates under [`.github/ISSUE_TEMPLATE`](.github/ISSUE_TEMPLATE)
+- A shared pull request template in [`.github/pull_request_template.md`](.github/pull_request_template.md)
+- Shared account-level metadata in [`.github/FUNDING.yaml`](.github/FUNDING.yaml)
+- Workflow templates and reusable automation in [`.github/workflows`](.github/workflows)
+- Development defaults for editing and validation in [`.devcontainer`](.devcontainer), [`.pre-commit-config.yaml`](.pre-commit-config.yaml), [`.markdownlint.json`](.markdownlint.json), and [`.yamllint.yaml`](.yamllint.yaml)
 
-## 🛠️ Installation
+## What Still Lives Per Repository
 
-To set up your project using this template, just follow these simple steps:
+This repo does not replace GitHub settings that are still managed per repository or via GitHub admin controls:
 
-1. **Clone the repository:**
+- Branch protection and rulesets
+- Repository visibility and topics
+- Secrets, variables, and environments
+- Merge strategy and required status checks
+- Actions permissions and workflow security settings
 
-   ```sh
-   git clone https://github.com/gvatsal60/project-template.git
-   cd project-template
-   ```
+## How To Use It
 
-2. **Customize According to Your Project:**
-   * 🎯 Replace `[Project Name]`
-   * 📧 Update `[contact email]`
-   * 💡 Follow `[coding style guide]`
+When I create a new repository, I use this repo as the source of shared defaults and only add repo-specific files when they are genuinely needed.
+The goal is to keep the account-wide baseline small, safe, and easy to update.
 
-## 💬 Contributing
+## Structure
 
-We love contributions! If you'd like to help improve this project, please review our
-[Contribution Guidelines](https://github.com/gvatsal60/project-template/blob/HEAD/CONTRIBUTING.md)
-before submitting pull requests.
-
-## 🛡️ License
-
-This project is licensed under the Apache License 2.0 License -
-see the [LICENSE](https://github.com/gvatsal60/project-template/blob/HEAD/LICENSE)
-file for details.
+- `MARKDOWN_GUIDE.md` for repository-agnostic Markdown standards and templates
+- `.github/ISSUE_TEMPLATE/` for issue intake
+- `.github/workflows/` for reusable automation patterns
+- `.github/FUNDING.yaml` for sponsor links
+- `.devcontainer/` for editing this repository locally
+- Root-level lint and hook config for shared formatting and validation rules
