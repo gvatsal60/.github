@@ -26,16 +26,16 @@ If applicable, add screenshots to help explain your problem.
 
 **Desktop (please complete the following information):**
 
-- OS: [e.g. iOS](https)
-- Browser [e.g. chrome, safari](https)
-- Version [e.g. 22](https)
+- OS: [e.g. macOS](https://apple.com/macos)
+- Browser: [e.g. Chrome](https://google.com/chrome)
+- Version: [e.g. 115](https://example.com)
 
 **Smartphone (please complete the following information):**
 
-- Device: [e.g. iPhone6](https)
-- OS: [e.g. iOS8.1](https)
-- Browser [e.g. stock browser, safari](https)
-- Version [e.g. 22](https)
+- Device: [e.g. iPhone 14](https://apple.com/iphone)
+- OS: [e.g. iOS 17](https://apple.com/ios)
+- Browser: [e.g. Safari](https://apple.com/safari)
+- Version: [e.g. 17.0](https://example.com)
 
 **Additional context**
 Add any other context about the problem here.
