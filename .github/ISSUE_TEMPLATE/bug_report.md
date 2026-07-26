@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Report a problem with a shared default or repo file
+about: Report a problem with this project
 title: ''
 labels: ''
 assignees: ''
