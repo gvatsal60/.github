@@ -14,7 +14,6 @@ every repo to carry the same boilerplate.
 - A shared pull request template in [`.github/pull_request_template.md`](.github/pull_request_template.md)
 - Shared account-level metadata in [`.github/FUNDING.yaml`](.github/FUNDING.yaml)
 - Workflow templates and reusable automation in [`.github/workflows`](.github/workflows)
-- Development defaults for editing and validation in [`.devcontainer`](.devcontainer), [`.pre-commit-config.yaml`](.pre-commit-config.yaml), [`.markdownlint.json`](.markdownlint.json), and [`.yamllint.yaml`](.yamllint.yaml)
 
 ## What Still Lives Per Repository
 
