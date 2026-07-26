@@ -1,5 +1,9 @@
 # Personal GitHub Defaults
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/1763803bab96471b881a589893e299d9)](https://app.codacy.com/gh/gvatsal60/.github/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+
+[![Quality gate status](https://sonarcloud.io/api/project_badges/measure?project=gvatsal60_.github&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=gvatsal60_.github)
+
 This repository is a central configuration hub for my personal GitHub account.
 It is meant to provide a consistent baseline for new repositories without forcing
 every repo to carry the same boilerplate.
