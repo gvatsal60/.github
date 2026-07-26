@@ -1,28 +1,25 @@
-# Contributing to [Project Name](#contributing-to-project-name)
+# Contributing to the Personal GitHub Defaults Repo
 
-Thank you for your interest in contributing to [Project Name](https)!
-Please follow these guidelines to ensure a smooth process.
+Thanks for improving the shared configuration used across my repositories.
+Changes here should stay account-wide and generic unless a file is explicitly meant for this repo only.
 
-## How to Contribute
+## How To Contribute
 
-1. Fork the repository and create your branch from `master`.
-2. Open an issue or feature request on GitHub or pick an existing one.
-3. Work on your changes.
-4. Ensure your code follows our coding standards and conventions.
-5. Test your changes thoroughly.
-6. Submit a pull request referencing the original issue.
+1. Open an issue or pick an existing one that applies to the shared defaults.
+2. Keep changes generic enough to work across multiple repositories.
+3. Update the smallest number of files needed to support the change.
+4. Validate the result in this repository before opening a pull request.
+5. Link the pull request to the issue or describe the downstream use case clearly.
 
-## Code Style
+## Editing Rules
 
-[Describe your coding style guidelines here, if applicable.](#code-style)
-We follow the [coding style guide](link_to_style_guide) for this project.
+This repository should avoid project-specific wording, hard-coded repo names, and assumptions about a single stack.
+Prefer wording that still makes sense when copied into another personal repository.
 
-## Reporting Bugs
+## Reporting Problems
 
-Please report bugs using the GitHub issue tracker.
-Include steps to reproduce the bug and any relevant error messages.
+If a shared default is wrong or too opinionated, open an issue here and describe:
 
-## Contact
-
-If you have questions or need further assistance,
-feel free to contact us at [contact email](github-actions[bot]@users.noreply.github.com).
+1. Which file or workflow is affected
+2. Which downstream repositories would be impacted
+3. What the safer default should be
