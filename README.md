@@ -30,12 +30,3 @@ This repo does not replace GitHub settings that are still managed per repository
 
 When I create a new repository, I use this repo as the source of shared defaults and only add repo-specific files when they are genuinely needed.
 The goal is to keep the account-wide baseline small, safe, and easy to update.
-
-## Structure
-
-- `MARKDOWN_GUIDE.md` for repository-agnostic Markdown standards and templates
-- `.github/ISSUE_TEMPLATE/` for issue intake
-- `.github/workflows/` for reusable automation patterns
-- `.github/FUNDING.yaml` for sponsor links
-- `.devcontainer/` for editing this repository locally
-- Root-level lint and hook config for shared formatting and validation rules
