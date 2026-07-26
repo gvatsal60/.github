@@ -6,12 +6,10 @@
     "vscode": {
       "extensions": [
         "DavidAnson.vscode-markdownlint",
-        "EditorConfig.EditorConfig",
         "Tyriar.sort-lines",
         "bradzacher.vscode-copy-filename",
         "esbenp.prettier-vscode",
         "foxundermoon.shell-format",
-        "ms-azuretools.vscode-docker",
         "streetsidesoftware.code-spell-checker",
         "timonwong.shellcheck",
         "usernamehw.errorlens"
