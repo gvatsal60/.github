@@ -1,12 +1,16 @@
-name: Pre-commit Auto Approve & Merge
+name: Bot PR Auto Approve & Merge
 on: pull_request
 permissions:
   pull-requests: write
   contents: write
 jobs:
-  pre-commit:
+  auto-approve-and-merge:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.user.login == 'pre-commit-ci[bot]' && github.event.pull_request.user.type == 'Bot'
+    if: |
+      github.event.pull_request.user.type == 'Bot' && (
+        github.event.pull_request.user.login == 'dependabot[bot]' ||
+        github.event.pull_request.user.login == 'pre-commit-ci[bot]'
+      )
     steps:
       - name: Approve & Auto-Merge PR
         run: |
