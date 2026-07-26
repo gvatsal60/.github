@@ -1,5 +1,7 @@
 # Personal GitHub Defaults
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/258102c942484c71bd3378cdea5f332c)](https://app.codacy.com/gh/gvatsal60/.github?utm_source=github.com&utm_medium=referral&utm_content=gvatsal60/.github&utm_campaign=Badge_Grade)
+
 This repository is a central configuration hub for my personal GitHub account.
 It is meant to provide a consistent baseline for new repositories without forcing
 every repo to carry the same boilerplate.
