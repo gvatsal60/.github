@@ -1,11 +1,10 @@
-# Personal GitHub Defaults
+# gvatsal60 GitHub Defaults
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/1763803bab96471b881a589893e299d9)](https://app.codacy.com/gh/gvatsal60/.github/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 [![Quality gate status](https://sonarcloud.io/api/project_badges/measure?project=gvatsal60_.github&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=gvatsal60_.github)
 
-This repository is a central configuration hub for my personal GitHub account.
-It is meant to provide a consistent baseline for new repositories without forcing
-every repo to carry the same boilerplate.
+This repository is the central configuration hub for my personal GitHub account.
+It provides a consistent baseline for new repositories without forcing every repo to carry the same boilerplate.
 
 ## What This Repo Standardizes
 
@@ -13,7 +12,16 @@ every repo to carry the same boilerplate.
 - Default issue templates under [`.github/ISSUE_TEMPLATE`](.github/ISSUE_TEMPLATE)
 - A shared pull request template in [`.github/pull_request_template.md`](.github/pull_request_template.md)
 - Shared account-level metadata in [`.github/FUNDING.yaml`](.github/FUNDING.yaml)
-- Workflow templates and reusable automation in [`.github/workflows`](.github/workflows)
+- Reusable workflows for automation in [`.github/workflows`](.github/workflows), including a shared Trivy security scan workflow
+
+## Security Scanning
+
+All repositories use a centralized Trivy scan workflow defined in this repo:
+[`.github/workflows/trivy-scan.yaml`](.github/workflows/trivy-scan.yaml)
+
+- **Filesystem scan** runs on every PR and push to `master`/`main`
+- **Docker image scan** runs automatically only when the repository contains a `Dockerfile`
+- Results are uploaded to the GitHub Security tab as SARIF
 
 ## What Still Lives Per Repository
 

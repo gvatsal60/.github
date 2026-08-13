@@ -1,4 +1,4 @@
-# Contributing to the Personal GitHub Defaults Repo
+# Contributing to the gvatsal60 GitHub Defaults Repo
 
 Thanks for improving the shared configuration used across my repositories.
 Changes here should stay account-wide and generic unless a file is explicitly meant for this repo only.
