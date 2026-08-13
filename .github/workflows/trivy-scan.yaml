@@ -10,12 +10,13 @@ on:
         required: false
         type: boolean
         default: false
+permissions:
+  contents: read
 jobs:
   trivy-filesystem:
     name: Trivy Filesystem Scan
     runs-on: ubuntu-latest
     permissions:
-      contents: read
       security-events: write
     steps:
       - name: Checkout repository
@@ -38,7 +39,6 @@ jobs:
     name: Trivy Image Scan
     runs-on: ubuntu-latest
     permissions:
-      contents: read
       security-events: write
     if: ${{ inputs.dockerfile_exists }}
     needs: trivy-filesystem
