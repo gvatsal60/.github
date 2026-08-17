@@ -54,7 +54,7 @@ repos:
       - id: eslint
   # Runs mypy to check Python type annotations.
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: "v2.3.0"
+    rev: "v2.3.1"
     hooks:
       - id: mypy
   # Lints SCSS files to enforce style and best practices.
@@ -111,7 +111,7 @@ repos:
       - id: codespell
   # Checkmake for linting Makefiles
   - repo: https://github.com/mrtazz/checkmake
-    rev: "v0.3.2"
+    rev: "v0.3.0"
     hooks:
       - id: checkmake
   # SQLFluff for linting and fixing SQL files
@@ -133,7 +133,7 @@ repos:
       - id: tf-validate
   # Gitleaks for detecting secrets in Git repositories
   - repo: https://github.com/gitleaks/gitleaks
-    rev: "v8.30.1"
+    rev: "v8.30.0"
     hooks:
       - id: gitleaks
   # Talisman for pre-commit Git hooks to detect sensitive files
