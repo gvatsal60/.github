@@ -79,7 +79,7 @@ repos:
       - id: csslint
   # ShellCheck hook for linting shell scripts
   - repo: https://github.com/shellcheck-py/shellcheck-py
-    rev: "v0.11.0.1"
+    rev: "v0.11.0.1-1"
     hooks:
       - id: shellcheck
         name: shellcheck
@@ -111,7 +111,7 @@ repos:
       - id: codespell
   # Checkmake for linting Makefiles
   - repo: https://github.com/mrtazz/checkmake
-    rev: "v0.3.2"
+    rev: "v0.3.0"
     hooks:
       - id: checkmake
   # SQLFluff for linting and fixing SQL files
@@ -127,7 +127,7 @@ repos:
       - id: rubocop
   # Terraform-py for formatting and validating Terraform files
   - repo: https://github.com/AleksaC/terraform-py
-    rev: "v1.16.3"
+    rev: "v1.16.4"
     hooks:
       - id: tf-fmt
       - id: tf-validate
