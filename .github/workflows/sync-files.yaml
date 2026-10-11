@@ -9,16 +9,15 @@ jobs:
     steps:
       - name: Checkout files
         uses: actions/checkout@v4
-
       # 1. GENERATE THE DEFAULT CONFIG FILE DYNAMICALLY USING YQ
       - name: Generate config file
         env:
-          OWNER: ${{ github.repository_owner }} 
+          OWNER: ${{ github.repository_owner }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Create the .github folder if it doesn't exist
           mkdir -p .github
-          
+
           # Write out only the base configuration rules
           cat << 'EOF' > .github/files-sync-config.yml
           settings:
@@ -51,7 +50,6 @@ jobs:
           for REPO in $REPOS; do
             yq -i ".patterns[0].repositories += \"$REPO\"" .github/files-sync-config.yml
           done
-
       # 2. RUN WADACKEL ACTION
       - uses: wadackel/files-sync-action@v4
         with:
