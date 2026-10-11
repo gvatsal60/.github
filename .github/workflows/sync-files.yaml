@@ -45,7 +45,7 @@ jobs:
             "https://github.com")
 
           # Parse names with jq, filtering out the host repository
-          REPOS=$(echo "$REPOS_JSON" | jq -r --arg current "${{ github.event.repository.name }}" \
+          REPOS=$(echo "$REPOS_JSON" | jq -r --arg current "$REPO_NAME" '
             '.repositories[] | select(.archived == false and .fork == false and .name != $current) | .full_name')
 
           # Use 'yq' to cleanly inject the array without worrying about spaces
