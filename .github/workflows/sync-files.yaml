@@ -15,6 +15,7 @@ jobs:
       # 1. GENERATE THE DEFAULT CONFIG FILE DYNAMICALLY USING YQ
       - name: Generate config file
         env:
+          REPO_NAME: ${{ github.event.repository.name }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Create the .github folder if it doesn't exist
