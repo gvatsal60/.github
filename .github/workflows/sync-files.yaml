@@ -1,17 +1,14 @@
 name: Sync Files
-
 on:
   push:
     branches: [master]
   workflow_dispatch:
-
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
-
       - name: Files Sync
         uses: wadackel/files-sync-action@v4.0.2
         with:
