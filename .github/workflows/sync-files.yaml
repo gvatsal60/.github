@@ -1,0 +1,61 @@
+name: Sync Files
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Sync files to all repos
+        uses: adrianjost/files-sync-action@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          REPOSITORIES: |
+            gvatsal60/Bazel_Cpp_Template
+            gvatsal60/CMakeDockerTemplate
+            gvatsal60/CppDockerMakeTemplate
+            gvatsal60/Custom-WSL-OS
+            gvatsal60/GenAIStarterKit
+            gvatsal60/LinkAutoPostAI
+            gvatsal60/Linux-Aliases
+            gvatsal60/Linux-All-In-One-Update-Script
+            gvatsal60/PySparkTemplate
+            gvatsal60/PySparkTutorial
+            gvatsal60/PythonTemplate
+            gvatsal60/Random_Code
+            gvatsal60/SolidCore
+            gvatsal60/Windows-Aliases
+            gvatsal60/core-subjects
+            gvatsal60/dbt-databricks-workflow
+            gvatsal60/dev-container-features
+            gvatsal60/ds-on-kaggle
+            gvatsal60/gemini-chatbot
+            gvatsal60/gvatsal60
+            gvatsal60/high-level-design-docs
+            gvatsal60/jenkins-local
+            gvatsal60/linux-ops
+            gvatsal60/logmask-ai
+            gvatsal60/low-level-design-docs
+            gvatsal60/nlp-ninja
+            gvatsal60/portfolio
+            gvatsal60/project-template
+            gvatsal60/resume-studio
+            gvatsal60/rustify
+            gvatsal60/tcp-ip-pkt-gen
+            gvatsal60/vs-snippets
+            gvatsal60/vscode-ext-customize
+          FILES: |
+            .github/dependabot.yaml
+            .markdownlint.json
+            .pre-commit-config.yaml
+            .yamllint.yaml
+          BRANCH_NAME: chore/sync-common-files
+          COMMIT_MESSAGE: "chore: sync common files from .github"
+          PR_TITLE: "chore: sync common files from .github"
+          PR_BODY: "Automated sync of common config files"
