@@ -1,25 +1,58 @@
 name: Sync Files
 on:
   push:
-    branches: [master]
+    branches: ["master", "main"]
   workflow_dispatch:
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout source
+      - name: Checkout files
         uses: actions/checkout@v4
-      - name: Files Sync
-        uses: wadackel/files-sync-action@v4.0.2
+
+      # 1. GENERATE THE DEFAULT CONFIG FILE DYNAMICALLY USING YQ
+      - name: Generate config file
+        env:
+          OWNER: ${{ github.repository_owner }} 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Create the .github folder if it doesn't exist
+          mkdir -p .github
+          
+          # Write out only the base configuration rules
+          cat << 'EOF' > .github/files-sync-config.yml
+          settings:
+            pull_request:
+              reviewers:
+                - 'github-actions[bot]'
+              labels:
+                - 'files-sync'
+
+          patterns:
+            - files:
+                - .markdownlint.json
+                - .pre-commit-config.yaml
+                - .yamllint.yaml
+                - from: .github/dependabot.yaml
+                  to: .github/dependabot.yaml
+              repositories: []
+          EOF
+
+          # Call the GitHub API to safely collect allowed repository names
+          REPOS_JSON=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://github.com")
+
+          # Parse names with jq, filtering out the host repository
+          REPOS=$(echo "$REPOS_JSON" | jq -r --arg current "${{ github.event.repository.name }}" \
+            '.repositories[] | select(.archived == false and .fork == false and .name != $current) | .full_name')
+
+          # Use 'yq' to cleanly inject the array without worrying about spaces
+          for REPO in $REPOS; do
+            yq -i ".patterns[0].repositories += \"$REPO\"" .github/files-sync-config.yml
+          done
+
+      # 2. RUN WADACKEL ACTION
+      - uses: wadackel/files-sync-action@v4
         with:
-          token: ${{ secrets.GH_PAT }}
-          repo: gvatsal60/Bazel_Cpp_Template,gvatsal60/CMakeDockerTemplate,gvatsal60/CppDockerMakeTemplate,gvatsal60/Custom-WSL-OS,gvatsal60/GenAIStarterKit,gvatsal60/LinkAutoPostAI,gvatsal60/Linux-Aliases,gvatsal60/Linux-All-In-One-Update-Script,gvatsal60/PySparkTemplate,gvatsal60/PySparkTutorial,gvatsal60/PythonTemplate,gvatsal60/Random_Code,gvatsal60/SolidCore,gvatsal60/Windows-Aliases,gvatsal60/core-subjects,gvatsal60/dbt-databricks-workflow,gvatsal60/dev-container-features,gvatsal60/ds-on-kaggle,gvatsal60/gemini-chatbot,gvatsal60/gvatsal60,gvatsal60/high-level-design-docs,gvatsal60/jenkins-local,gvatsal60/linux-ops,gvatsal60/logmask-ai,gvatsal60/low-level-design-docs,gvatsal60/nlp-ninja,gvatsal60/portfolio,gvatsal60/project-template,gvatsal60/resume-studio,gvatsal60/rustify,gvatsal60/tcp-ip-pkt-gen,gvatsal60/vs-snippets,gvatsal60/vscode-ext-customize
-          files: |
-            .github/dependabot.yaml
-            .markdownlint.json
-            .pre-commit-config.yaml
-            .yamllint.yaml
-          branch: chore/sync-common-files
-          commit-message: "chore: sync common files from .github"
-          pr-title: "chore: sync common files from .github"
-          pr-body: "Automated sync of common config files"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
