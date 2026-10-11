@@ -54,6 +54,6 @@ jobs:
           done
       # 2. RUN WADACKEL ACTION
       - name: Run files sync action
-        uses: wadackel/files-sync-action@v4
+        uses: wadackel/files-sync-action@80fcb2d79aa9b44b23b9e2a742d3073a34c0c7bc
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
