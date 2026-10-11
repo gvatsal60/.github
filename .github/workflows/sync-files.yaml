@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout files
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       # 1. GENERATE THE DEFAULT CONFIG FILE DYNAMICALLY USING YQ
       - name: Generate config file
         env:
@@ -53,6 +53,7 @@ jobs:
             yq -i ".patterns[0].repositories += \"$REPO\"" .github/files-sync-config.yml
           done
       # 2. RUN WADACKEL ACTION
-      - uses: wadackel/files-sync-action@v4
+      - name: Run files sync action
+        uses: wadackel/files-sync-action@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
