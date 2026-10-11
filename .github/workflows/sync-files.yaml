@@ -4,7 +4,8 @@ on:
     branches: ["master", "main"]
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
+  pull-requests: write
 jobs:
   sync:
     runs-on: ubuntu-latest
@@ -14,7 +15,6 @@ jobs:
       # 1. GENERATE THE DEFAULT CONFIG FILE DYNAMICALLY USING YQ
       - name: Generate config file
         env:
-          OWNER: ${{ github.repository_owner }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Create the .github folder if it doesn't exist
