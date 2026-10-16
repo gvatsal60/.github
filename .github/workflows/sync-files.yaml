@@ -43,7 +43,7 @@ jobs:
           # Call the GitHub API to safely collect allowed repository names
           REPOS_JSON=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" \
             -H "Accept: application/vnd.github+json" \
-            "https://github.com")
+            "https://api.github.com/orgs/${{ github.repository_owner }}/repos?per_page=100"
 
           # Parse names with jq, filtering out the host repository
           REPOS=$(echo "$REPOS_JSON" | jq -r --arg current "$REPO_NAME" '
