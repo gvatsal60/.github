@@ -1,0 +1,60 @@
+name: Sync Files
+on:
+  push:
+    branches: ["master", "main"]
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout files
+        uses: actions/checkout@v7
+      # 1. GENERATE THE DEFAULT CONFIG FILE DYNAMICALLY USING YQ
+      - name: Generate config file
+        env:
+          REPO_NAME: ${{ github.event.repository.name }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Create the .github folder if it doesn't exist
+          mkdir -p .github
+
+          # Write out only the base configuration rules
+          cat << 'EOF' > .github/files-sync-config.yml
+          settings:
+            pull_request:
+              reviewers:
+                - 'github-actions[bot]'
+              labels:
+                - 'files-sync'
+
+          patterns:
+            - files:
+                - .markdownlint.json
+                - .pre-commit-config.yaml
+                - .yamllint.yaml
+                - from: .github/dependabot.yaml
+                  to: .github/dependabot.yaml
+              repositories: []
+          EOF
+
+          # Call the GitHub API to safely collect allowed repository names
+          REPOS_JSON=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/orgs/${{ github.repository_owner }}/repos?per_page=100"
+
+          # Parse names with jq, filtering out the host repository
+          REPOS=$(echo "$REPOS_JSON" | jq -r --arg current "$REPO_NAME" '
+            '.[] | select(.archived == false and .fork == false and .name != $current) | .full_name'
+
+          # Use 'yq' to cleanly inject the array without worrying about spaces
+          for REPO in $REPOS; do
+            yq -i ".patterns[0].repositories += \"$REPO\"" .github/files-sync-config.yml
+          done
+      # 2. RUN WADACKEL ACTION
+      - name: Run files sync action
+        uses: wadackel/files-sync-action@80fcb2d79aa9b44b23b9e2a742d3073a34c0c7bc
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
