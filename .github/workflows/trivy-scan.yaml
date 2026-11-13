@@ -19,10 +19,15 @@ jobs:
     permissions:
       security-events: write
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@1d88384fd173af6ecb012dfd0264a306b711241a # v2.22.4
+        with:
+          egress-policy: audit
+
       - name: Checkout repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Run Trivy filesystem scan
-        uses: aquasecurity/trivy-action@38b337fff0a2f984d5be173c99e3f633438167ec
+        uses: step-security/trivy-action@4d04e2d32ba36aae5693467644b22741d68f9115 # v0.36.0
         with:
           scan-type: "fs"
           scan-ref: "."
@@ -31,7 +36,7 @@ jobs:
           severity: "CRITICAL,HIGH,MEDIUM"
           ignore-unfixed: true
       - name: Upload Trivy fs results to GitHub Security
-        uses: github/codeql-action/upload-sarif@v4
+        uses: github/codeql-action/upload-sarif@33d7b85da1a04171e211befe2c739303b9a4c066 # v4.39.3
         with:
           sarif_file: "trivy-fs-results.sarif"
           category: "filesystem"
@@ -43,12 +48,17 @@ jobs:
     if: ${{ inputs.dockerfile_exists }}
     needs: trivy-filesystem
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@1d88384fd173af6ecb012dfd0264a306b711241a # v2.22.4
+        with:
+          egress-policy: audit
+
       - name: Checkout repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Build Docker image
         run: docker build -t trivy-scan-image .
       - name: Run Trivy image scan
-        uses: aquasecurity/trivy-action@38b337fff0a2f984d5be173c99e3f633438167ec
+        uses: step-security/trivy-action@4d04e2d32ba36aae5693467644b22741d68f9115 # v0.36.0
         with:
           scan-type: "image"
           image-ref: "trivy-scan-image:latest"
@@ -58,7 +68,7 @@ jobs:
           ignore-unfixed: true
           vuln-type: "os,library"
       - name: Upload Trivy image results to GitHub Security
-        uses: github/codeql-action/upload-sarif@v4
+        uses: github/codeql-action/upload-sarif@33d7b85da1a04171e211befe2c739303b9a4c066 # v4.39.3
         with:
           sarif_file: "trivy-image-results.sarif"
           category: "image"
