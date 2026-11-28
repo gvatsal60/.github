@@ -35,7 +35,7 @@ jobs:
           severity: "CRITICAL,HIGH,MEDIUM"
           ignore-unfixed: true
       - name: Upload Trivy fs results to GitHub Security
-        uses: github/codeql-action/upload-sarif@33d7b85da1a04171e211befe2c739303b9a4c066 # v4.39.3
+        uses: github/codeql-action/upload-sarif@915412ff23e8b7659517e607487dbeae018f2934 # v4.39.5
         with:
           sarif_file: "trivy-fs-results.sarif"
           category: "filesystem"
@@ -66,7 +66,7 @@ jobs:
           ignore-unfixed: true
           vuln-type: "os,library"
       - name: Upload Trivy image results to GitHub Security
-        uses: github/codeql-action/upload-sarif@33d7b85da1a04171e211befe2c739303b9a4c066 # v4.39.3
+        uses: github/codeql-action/upload-sarif@915412ff23e8b7659517e607487dbeae018f2934 # v4.39.5
         with:
           sarif_file: "trivy-image-results.sarif"
           category: "image"
